@@ -1,0 +1,15 @@
+{
+    "name": "test",
+    "states": ["q0", "q1", "q2"],
+    "alphabet": ["c", "i", "a", "m"],
+    "transitions": [
+        {"from": "q0", "symbol": "c", "to": "q1"},
+        {"from": "q0", "symbol": "m", "to": "q1"},
+        {"from": "q1", "symbol": "i", "to": "q2"},
+        {"from": "q2", "symbol": "c", "to": "q1"},
+        {"from": "q1", "symbol": "a", "to": "q1"}
+    ],
+    "start_state": "q0",
+    "accept_states": ["q2", "q1"],
+    "test_words": ["test", "cica", "mica", "macska"]
+}

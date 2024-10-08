@@ -1,0 +1,129 @@
+{
+    "name": "dfa_0",
+    "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3"
+    ],
+    "alphabet": [
+        "s",
+        "h",
+        "u",
+        "e",
+        "d"
+    ],
+    "transitions": [
+        {
+            "from": "q0",
+            "symbol": "s",
+            "to": "q0"
+        },
+        {
+            "from": "q0",
+            "symbol": "h",
+            "to": "q2"
+        },
+        {
+            "from": "q0",
+            "symbol": "u",
+            "to": "q1"
+        },
+        {
+            "from": "q0",
+            "symbol": "e",
+            "to": "q1"
+        },
+        {
+            "from": "q0",
+            "symbol": "d",
+            "to": "q2"
+        },
+        {
+            "from": "q1",
+            "symbol": "s",
+            "to": "q0"
+        },
+        {
+            "from": "q1",
+            "symbol": "h",
+            "to": "q3"
+        },
+        {
+            "from": "q1",
+            "symbol": "u",
+            "to": "q2"
+        },
+        {
+            "from": "q1",
+            "symbol": "e",
+            "to": "q1"
+        },
+        {
+            "from": "q1",
+            "symbol": "d",
+            "to": "q2"
+        },
+        {
+            "from": "q2",
+            "symbol": "s",
+            "to": "q0"
+        },
+        {
+            "from": "q2",
+            "symbol": "h",
+            "to": "q3"
+        },
+        {
+            "from": "q2",
+            "symbol": "u",
+            "to": "q2"
+        },
+        {
+            "from": "q2",
+            "symbol": "e",
+            "to": "q2"
+        },
+        {
+            "from": "q2",
+            "symbol": "d",
+            "to": "q3"
+        },
+        {
+            "from": "q3",
+            "symbol": "s",
+            "to": "q1"
+        },
+        {
+            "from": "q3",
+            "symbol": "h",
+            "to": "q2"
+        },
+        {
+            "from": "q3",
+            "symbol": "u",
+            "to": "q1"
+        },
+        {
+            "from": "q3",
+            "symbol": "e",
+            "to": "q0"
+        },
+        {
+            "from": "q3",
+            "symbol": "d",
+            "to": "q1"
+        }
+    ],
+    "start_state": "q3",
+    "accept_states": [
+        "q1",
+        "q3"
+    ],
+    "test_words": [
+        "test",
+        "cica",
+        "mica",
+        "macska"
+    ]
+}
