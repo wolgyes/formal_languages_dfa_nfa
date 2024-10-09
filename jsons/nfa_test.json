@@ -1,0 +1,62 @@
+{
+    "name": "NFA Example",
+    "states": [
+        "q0",
+        "q1",
+        "q2"
+    ],
+    "alphabet": [
+        "0",
+        "1"
+    ],
+    "start_state": "q0",
+    "accept_states": [
+        "q2"
+    ],
+    "transitions": [
+        {
+            "from": "q0",
+            "to": "q0",
+            "symbol": "0"
+        },
+        {
+            "from": "q0",
+            "to": "q0",
+            "symbol": "1"
+        },
+        {
+            "from": "q0",
+            "to": "q1",
+            "symbol": "1"
+        },
+        {
+            "from": "q1",
+            "to": "q2",
+            "symbol": "0"
+        },
+        {
+            "from": "q1",
+            "to": "q2",
+            "symbol": "1"
+        },
+        {
+            "from": "q2",
+            "to": "q2",
+            "symbol": "0"
+        },
+        {
+            "from": "q2",
+            "to": "q2",
+            "symbol": "1"
+        }
+
+    ],
+    "test_words": [
+        "0011",
+        "1010",
+        "1100",
+        "0000",
+        "1111",
+        "101"
+    ]
+}

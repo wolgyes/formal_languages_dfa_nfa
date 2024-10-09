@@ -1,0 +1,37 @@
+{
+    "name": "NFA recognizing strings ending with a letter that appears at least twice",
+    "states": [ "q0", "q1", "q2", "q3", "q4", "q5", "q6" ],
+    "alphabet": [ "a", "b", "c" ],
+    "start_state": "q0",
+    "accept_states": [ "q1", "q3", "q5" ],
+    "transitions": [
+        { "from": "q0", "to": "q0", "symbol": "a" },
+        { "from": "q0", "to": "q0", "symbol": "b" },
+        { "from": "q0", "to": "q0", "symbol": "c" },
+        { "from": "q0", "to": "q2", "symbol": "a" },
+        { "from": "q0", "to": "q4", "symbol": "b" },
+        { "from": "q0", "to": "q6", "symbol": "c" },
+        { "from": "q2", "to": "q2", "symbol": "a" },
+        { "from": "q2", "to": "q2", "symbol": "b" },
+        { "from": "q2", "to": "q2", "symbol": "c" },
+        { "from": "q2", "to": "q1", "symbol": "a" },
+        { "from": "q4", "to": "q4", "symbol": "a" },
+        { "from": "q4", "to": "q4", "symbol": "b" },
+        { "from": "q4", "to": "q4", "symbol": "c" },
+        { "from": "q4", "to": "q3", "symbol": "b" },
+        { "from": "q6", "to": "q6", "symbol": "a" },
+        { "from": "q6", "to": "q6", "symbol": "b" },
+        { "from": "q6", "to": "q6", "symbol": "c" },
+        { "from": "q6", "to": "q5", "symbol": "c" }
+    ],
+    "test_words": [
+        "aa",
+        "aba",
+        "abba",
+        "abc",
+        "abcba",
+        "aabbcc",
+        "cab",
+        "cca"
+    ]
+}

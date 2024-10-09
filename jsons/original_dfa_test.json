@@ -1,0 +1,21 @@
+{
+  "name": "DFA recognizing strings containing '1 0'",
+  "states": [ "a", "b", "c" ],
+  "alphabet": [ "0", "1" ],
+  "start_state": "a",
+  "accept_states": [ "c" ],
+  "transitions": [
+    { "from": "a", "to": "a", "symbol": "0" },
+    { "from": "a", "to": "b", "symbol": "1" },
+    { "from": "b", "to": "a", "symbol": "1" },
+    { "from": "b", "to": "c", "symbol": "0" },
+    { "from": "c", "to": "c", "symbol": "1" },
+    { "from": "c", "to": "b", "symbol": "0" }
+  ],
+  "test_words": [
+    "10",
+    "1010",
+    "101010",
+    "111"
+  ]
+}

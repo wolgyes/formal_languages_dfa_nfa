@@ -1,165 +1,90 @@
-# DFA Simulator - README
+# Implementation of Finite Automata
 
-# TODO: need to install pydot linux:
+This project contains an interactive Jupyter notebook that demonstrates and implements deterministic (DFA) and nondeterministic (NFA) finite automata in detail.
 
-sudo apt install python3-pydot graphviz
-mac:
-https://formulae.brew.sh/formula/graphviz
+## Table of Contents
 
-## Overview
+1. [Introduction](#introduction)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Notebook Structure](#notebook-structure)
+5. [Features](#features)
+6. [Contributing](#contributing)
+7. [License](#license)
 
-This project is an implementation of a Deterministic Finite Automaton (DFA) simulator in Python. It provides various functionalities such as importing DFA definitions from JSON files, validating the DFA, visualizing it, simulating words, generating word permutations, and determining the final state after processing an input word.
+## Introduction
 
-The DFA definition is loaded from a JSON file which includes information such as states, alphabet, transitions, starting state, accepting states, and words to test. Using this information, the class can visualize the DFA graphically and simulate inputs to check if they are accepted by the DFA.
+Automatons.ipynb is a comprehensive educational and experimental tool that helps understand and practice the concepts and operations of finite automata. The notebook is interactive, allowing users to directly run the code, modify examples, and see results in real-time.
 
-## Features
+## Installation
 
-- **DFA Definition via JSON**: Define DFAs using JSON files which include all necessary information (states, alphabet, transitions, etc.).
-- **Validation**: Validate the DFA structure for consistency.
-- **Simulation**: Simulate test words through the DFA to determine acceptance.
-- **Visualization**: Graphically represent the DFA using NetworkX and Pydot.
-- **Word Generation**: Generate all accepted words up to a specified length.
-- **Exporting Permutations**: Write the generated words to a file.
-- **State Tracking**: Find out the last state after simulating a specific word.
+To install the dependencies required to run the project, follow these steps:
 
-## JSON Structure for DFA Definition
+1. Install uv if it's not already installed:
+   ```
+   pip install uv
+   ```
 
-The DFA can be defined using a JSON file.
+2. Clone the repo:
+   ```
+   git clone https://github.com/wolgyes/formal_languages
+   ```
 
-```json
-{
-  "name": "test",
-  "states": ["q0", "q1", "q2"],
-  "alphabet": ["c", "i", "a", "m"],
-  "transitions": [
-    { "from": "q0", "symbol": "c", "to": "q1" },
-    { "from": "q0", "symbol": "m", "to": "q1" },
-    { "from": "q1", "symbol": "i", "to": "q2" },
-    { "from": "q2", "symbol": "c", "to": "q1" },
-    { "from": "q1", "symbol": "a", "to": "q1" }
-  ],
-  "start_state": "q0",
-  "accept_states": ["q2", "q1"],
-  "test_words": ["test", "cica", "mica", "macska"]
-}
-```
+3. Enter the project directory:
+   ```
+   cd finite-automata
+   ```
 
-### Example Visualization of DFA
-
-After defining your DFA in JSON format, the visualization of this DFA can look like the image below:
-
-![DFA Graph Example](images/example_for_readme.png)
-
-The graph visually represents states as nodes and transitions as directed edges between those nodes, showing how the input symbols move the DFA between states.
-
-### Fields Description
-
-- **name**: Name of the DFA.
-- **states**: List of states in the DFA.
-- **alphabet**: List of input symbols the DFA accepts.
-- **transitions**: List of transition rules (from state, symbol, to state).
-- **start_state**: The starting state of the DFA.
-- **accept_states**: List of accepting states.
-- **test_words**: Words to be tested during simulation.
-
-## Code Overview
-
-The code is written in Python and makes use of the `networkx` library to create and visualize the DFA as a directed graph. Below is a high-level overview of the main class and methods:
-
-### `DFA` Class
-
-The `DFA` class contains several key functionalities:
-
-- **Initialization** (`__init__`) - Initializes the DFA with optional JSON input.
-- **State and Transition Management** - Methods for adding states, adding transitions, and setting starting/accept states.
-- **Validation** (`validate_dfa`) - Ensures all DFA properties are correctly defined.
-- **Visualization** (`visualize`) - Uses NetworkX and Pydot to create a visual representation of the DFA.
-- **Simulation** (`simulate`) - Simulates a list of input words and checks whether they are accepted.
-- **Generate Words** (`generate_words`) - Generates all possible words accepted by the DFA up to a certain length.
-- **Permutations** (`permutations`) - Generates permutations up to a specified length and saves them to a file.
-- **Last State** (`last_statement_of`) - Tracks and returns the last state after simulating an input word.
-- **Import from JSON** (`import_from_json`) - Load DFA definition from a JSON file.
+4. Create a virtual environment and install the dependencies:
+   ```
+   uv venv
+   source .venv/bin/activate  # On Unix systems
+   # or
+   .venv\Scripts\activate  # On Windows systems
+   
+   uv pip install -r requirements.txt
+   ```
 
 ## Usage
 
-### Prerequisites
+To start the notebook, activate the virtual environment and then run the following command:
 
-To run this code, you'll need Python and the necessary dependencies listed in the `pyproject.toml` and `uv.lock` files. This project uses `uv` to manage dependencies, which ensures all packages are installed consistently.
-
-To install `uv`, you can use the following command:
-
-```sh
-pip install uv
+```
+jupyter notebook Automatons.ipynb
 ```
 
-To install the required dependencies, use:
+## Notebook Structure
 
-```sh
-uv sync
-```
+1. **Introduction and Imports**
+   - Importing necessary libraries
 
-This command will install all dependencies based on the `uv.lock` file.
+2. **Theoretical Background**
+   - Comparison of DFA and NFA
 
-### Example Usage
+3. **Implementations**
+   - Automaton base class
+   - DFA class
+   - NFA class
 
-Below is an example usage of the DFA class:
+4. **Testing and Examples**
+   - Testing automata
+   - Interactive examples
+   - Visualization results
 
-```python
-# Import the DFA class
-dfa = DFA(file="jsons/test.json")
+5. **Conclusion and Further Possibilities**
 
-# Validate DFA
-dfa.validate_dfa()
+## Features
 
-# Visualize the DFA
-dfa.visualize()
+- Implementation of Deterministic and Nondeterministic Finite Automata
+- Visualization of automata
+- Word acceptance simulation
+- Automata conversion (NFA to DFA)
+- JSON import/export functions
 
-# Simulate using words from JSON
-dfa.simulate()
+## Contributing
 
-# Simulate custom words
-dfa.simulate(words=["cica", "mica"])
-
-# Verbose simulation
-dfa.simulate(words=["suse"], verbose=True)
-
-# Generate permutations up to length 6 and write to file
-dfa.permutations(length=6)
-
-# Get the last state after simulating a word
-last_state = dfa.last_statement_of(word="suse")
-print(f"Last state for 'suse': {last_state}")
-```
-
-### Directory Structure
-
-- **jsons/**: This directory contains JSON files defining the DFA(s).
-- **permutations/**: This directory will store files containing generated permutations.
-
-## Testing
-
-The provided JSON files (`jsons/test.json`, etc.) can be used to initialize and test DFAs. You can modify these files or create your own to define custom DFAs.
-
-## Output
-
-- **Visualization**: The `visualize` method will create a visual representation of the DFA.
-- **Simulation**: The `simulate` method will print whether each input word is accepted or rejected by the DFA.
-- **Permutations**: The generated words are written to a file in the `permutations/` directory.
-
-## Example DFA Definitions
-
-Two example DFA definitions (`test.json`, `dfa_2.json`) are provided in the JSON format to demonstrate the working of the DFA class. These examples are helpful for getting started with the code.
+If you'd like to contribute to the project, please open an issue or send a pull request.
 
 ## License
 
-This project is licensed under the MIT License.
-
-## Contact
-
-For questions, issues, or contributions, feel free to reach out or submit a pull request.
-
-## Future Work
-
-- Add support for nondeterministic finite automata (NFA).
-- Extend the visualization to show live simulation paths.
-- Add a GUI for better user interaction.
+This project is licensed under the [MIT License](LICENSE).
