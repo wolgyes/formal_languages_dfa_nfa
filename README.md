@@ -27,22 +27,17 @@ To install the dependencies required to run the project, follow these steps:
 
 2. Clone the repo:
    ```
-   git clone https://github.com/wolgyes/formal_languages
+   git clone https://github.com/wolgyes/formal_languages_dfa_nfa
    ```
 
 3. Enter the project directory:
    ```
-   cd finite-automata
+   cd formal_languages_dfa_nfa
    ```
 
 4. Create a virtual environment and install the dependencies:
    ```
-   uv venv
-   source .venv/bin/activate  # On Unix systems
-   # or
-   .venv\Scripts\activate  # On Windows systems
-   
-   uv pip install -r requirements.txt
+   uv sync
    ```
 
 ## Usage
@@ -70,16 +65,6 @@ jupyter notebook Automatons.ipynb
    - Testing automata
    - Interactive examples
    - Visualization results
-
-5. **Conclusion and Further Possibilities**
-
-## Features
-
-- Implementation of Deterministic and Nondeterministic Finite Automata
-- Visualization of automata
-- Word acceptance simulation
-- Automata conversion (NFA to DFA)
-- JSON import/export functions
 
 ## Contributing
 
